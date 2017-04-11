@@ -122,8 +122,9 @@ class FontFinder(bpy.types.Operator) :
                 filepath = ct.cast(strptr, ct.c_char_p).value.decode()
             #end with
             bpy.data.fonts.load(filepath = filepath)
-            sys.stderr.write("Font Finder: succcessfully loaded %s\n" % filepath) # debug
-            self.report({"INFO"}, "%s => %s" % (fontspec, filepath))
+            msg = "%s => %s" % (fontspec, filepath)
+            sys.stderr.write("Font Finder: %s\n" % msg) # debug
+            self.report({"INFO"}, msg)
             status = {"FINISHED"}
         except Failure as why :
             self.report({"ERROR"}, why.msg)
