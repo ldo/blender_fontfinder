@@ -148,7 +148,11 @@ def register() :
     if not fc.FcInit() :
         raise RuntimeError("failed to initialize Fontconfig.")
     #end if
-    bpy.types.Scene.find_font_spec = bpy.props.StringProperty(name = "Font Spec")
+    bpy.types.Scene.find_font_spec = bpy.props.StringProperty \
+      (
+        name = "Font Spec",
+        description = "find fonts matching this Fontconfig pattern"
+      )
     bpy.utils.register_class(FontFinder)
     bpy.types.DATA_PT_font.append(add_my_panel)
 #end register
