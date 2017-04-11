@@ -133,8 +133,9 @@ class FontFinder(bpy.types.Operator) :
 
 def add_my_panel(self, context) :
     the_col = self.layout.column(align = True)
-    the_col.label("Font Finder")
-    the_col.prop(context.scene, "find_font_spec", text = "Font Spec")
+    the_col.separator()
+    the_col.prop(context.scene, "find_font_spec", text = "Find Font")
+    the_col.separator()
     the_col.operator(FontFinder.bl_idname, "Find & Load")
 #end add_to_menu
 
