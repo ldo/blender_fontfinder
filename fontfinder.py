@@ -7,6 +7,7 @@
 # Licensed under CC-BY-SA <http://creativecommons.org/licenses/by-sa/4.0/>.
 #-
 
+import sys
 import os
 import ctypes as ct
 import bpy
@@ -96,8 +97,9 @@ class FontFinder(bpy.types.Operator) :
 
     def invoke(self, context, event) :
         try :
+            fontspec = context.scene.find_font_spec
             with FcPatternManager() as patterns :
-                search_pattern = patterns.collect(fc.FcNameParse(context.scene.find_font_spec.encode("utf-8")))
+                search_pattern = patterns.collect(fc.FcNameParse(fontspec.encode("utf-8")))
                 if search_pattern == None :
                     raise Failure("cannot parse FontConfig name pattern")
                 #end if
@@ -120,6 +122,8 @@ class FontFinder(bpy.types.Operator) :
                 filepath = ct.cast(strptr, ct.c_char_p).value.decode()
             #end with
             bpy.data.fonts.load(filepath = filepath)
+            sys.stderr.write("Font Finder: succcessfully loaded %s\n" % filepath) # debug
+            self.report({"INFO"}, "%s => %s" % (fontspec, filepath))
             status = {"FINISHED"}
         except Failure as why :
             self.report({"ERROR"}, why.msg)
