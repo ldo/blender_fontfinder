@@ -1,0 +1,14 @@
+Fontfinder is a Blender addon that lets you find and load fonts by
+entering patterns using Fontconfig
+<https://www.freedesktop.org/wiki/Software/fontconfig/>, the standard
+Linux font-matching API. I find this more convenient than having to
+navigate to directories containing font files; just type a short
+string that is sufficient to identify the font that you want.
+
+The enclosed summary document was created as an SVG file. You can
+convert it to another format, e.g. PDF, using an Inkscape command like
+
+    inkscape docs/summary.svg --export-pdf=summary.pdf
+
+Lawrence D'Oliveiro <ldo@geek-central.gen.nz>
+2017 April 11
