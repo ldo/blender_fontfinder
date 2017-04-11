@@ -73,9 +73,9 @@ bl_info = \
     {
         "name" : "Fontfinder",
         "author" : "Lawrence D'Oliveiro <ldo@geek-central.gen.nz>",
-        "version" : {0, 1},
+        "version" : {0, 5},
         "blender" : (2, 7, 8),
-        "location" : "Properties > Font > Fontfinder",
+        "location" : "Properties > Font",
         "description" : "load a font by matching a pattern",
         "category" : "Object",
     }
