@@ -142,7 +142,7 @@ def add_my_panel(self, context) :
     the_col.prop(context.scene, "find_font_spec", text = "Find Font")
     the_col.separator()
     the_col.operator(FontFinder.bl_idname, "Find & Load")
-#end add_to_menu
+#end add_my_panel
 
 def register() :
     if not fc.FcInit() :
