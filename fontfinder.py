@@ -3,7 +3,7 @@
 # the standard Linux font-matching API, to let the user load a font into a
 # Blender document by specifying suitable identifying information.
 #
-# Copyright 2017 by Lawrence D'Oliveiro <ldo@geek-central.gen.nz>.
+# Copyright 2017-2020 by Lawrence D'Oliveiro <ldo@geek-central.gen.nz>.
 # Licensed under CC-BY-SA <http://creativecommons.org/licenses/by-sa/4.0/>.
 #-
 
@@ -73,8 +73,8 @@ bl_info = \
     {
         "name" : "Fontfinder",
         "author" : "Lawrence D'Oliveiro <ldo@geek-central.gen.nz>",
-        "version" : (0, 5, 1),
-        "blender" : (2, 7, 8),
+        "version" : (0, 6, 0),
+        "blender" : (2, 81, 0),
         "location" : "Properties > Font",
         "description" : "load a font by matching a pattern",
         "category" : "Object",
@@ -141,7 +141,7 @@ def add_my_panel(self, context) :
     the_col.separator()
     the_col.prop(context.scene, "find_font_spec", text = "Find Font")
     the_col.separator()
-    the_col.operator(FontFinder.bl_idname, "Find & Load")
+    the_col.operator(FontFinder.bl_idname, text = "Find & Load")
 #end add_my_panel
 
 def register() :
